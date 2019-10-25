@@ -3,6 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=node,visualstudiocode
 
 ### Node ###
+
 # Logs
 logs
 *.log
@@ -39,8 +40,8 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
+# Build artifacts
+build/
 
 # Dependency directories
 node_modules/
@@ -68,7 +69,6 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
 .env.local
 .env.test
 
@@ -80,9 +80,6 @@ typings/
 
 # nuxt.js build output
 .nuxt
-
-# react / gatsby 
-public/
 
 # vuepress build output
 .vuepress/dist
