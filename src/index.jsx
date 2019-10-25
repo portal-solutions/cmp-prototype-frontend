@@ -25,7 +25,7 @@ import './index.scss';
 const App = () => {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
         <Switch>
           {/* public routes */}
           <Route exact path="/" component={Home} />
