@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/cmp-prototype-frontend/static/css/main.61e17e9a.chunk.css",
-    "main.js": "/cmp-prototype-frontend/static/js/main.6d3966ef.chunk.js",
+    "main.js": "/cmp-prototype-frontend/static/js/main.9ee5584e.chunk.js",
     "runtime-main.js": "/cmp-prototype-frontend/static/js/runtime-main.3eef2b32.js",
     "static/js/2.17dcc8a2.chunk.js": "/cmp-prototype-frontend/static/js/2.17dcc8a2.chunk.js",
     "index.html": "/cmp-prototype-frontend/index.html",
-    "precache-manifest.31edb8e37d69bd05a0dece4d9b97af8e.js": "/cmp-prototype-frontend/precache-manifest.31edb8e37d69bd05a0dece4d9b97af8e.js",
+    "precache-manifest.88246c0cad49b5a3e7c69196bec50061.js": "/cmp-prototype-frontend/precache-manifest.88246c0cad49b5a3e7c69196bec50061.js",
     "service-worker.js": "/cmp-prototype-frontend/service-worker.js"
   },
   "entrypoints": [
     "static/js/runtime-main.3eef2b32.js",
     "static/js/2.17dcc8a2.chunk.js",
     "static/css/main.61e17e9a.chunk.css",
-    "static/js/main.6d3966ef.chunk.js"
+    "static/js/main.9ee5584e.chunk.js"
   ]
 }
