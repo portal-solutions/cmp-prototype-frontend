@@ -17,7 +17,7 @@ import Backend from 'i18next-xhr-backend';
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { initReactI18next } from 'react-i18next';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import AuthProvider from './components/AuthProvider';
 import ProtectedRoute from './components/ProtectedRoute';
 import './index.scss';
@@ -53,7 +53,7 @@ const App = () => {
   return (
     <Suspense fallback={<Spinner size="5x" />}>
       <AuthProvider>
-        <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
+        <HashRouter basename={`${process.env.PUBLIC_URL}`}>
           <Switch>
             {/* public routes */}
             <Route exact path="/" component={Home} />
@@ -65,7 +65,7 @@ const App = () => {
             {/* 404 fallback */}
             <Route component={Error404} />
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </AuthProvider>
     </Suspense>
   );
