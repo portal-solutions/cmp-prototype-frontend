@@ -11,15 +11,12 @@
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 
-import i18n from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-xhr-backend';
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import { initReactI18next } from 'react-i18next';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import AuthProvider from './components/AuthProvider';
 import ProtectedRoute from './components/ProtectedRoute';
+import './config';
 import './index.scss';
 import Error404 from './views/error/Error404';
 import Home from './views/Home';
@@ -27,33 +24,11 @@ import Profile from './views/Profile';
 import SignIn from './views/SignIn';
 import Spinner from './views/Spinner';
 
-i18n
-  .use(Backend)
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    backend: {
-      loadPath: `${process.env.PUBLIC_URL}/locales/{{lng}}/{{ns}}.json`
-    },
-    detection: {
-      caches: ['localStorage'],
-      lookupLocalStorage: 'locale',
-      lookupQuerystring: 'locale',
-      order: ['querystring', 'localStorage', 'navigator']
-    },
-    interpolation: {
-      escapeValue: false // JSX escapes by default
-    },
-    load: 'languageOnly',
-    ns: ['wet-boew'],
-    whitelist: ['en', 'fr']
-  });
-
 const App = () => {
   return (
     <Suspense fallback={<Spinner size="5x" />}>
       <AuthProvider>
-        <HashRouter basename={`${process.env.PUBLIC_URL}`}>
+        <HashRouter>
           <Switch>
             {/* public routes */}
             <Route exact path="/" component={Home} />
