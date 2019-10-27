@@ -13,6 +13,11 @@ import { useTranslation } from 'react-i18next';
 const GlobalHeader = () => {
   const { i18n, t } = useTranslation('wet-boew');
 
+  const toggleLanguage = () => {
+    const isFrench = i18n.language.startsWith('fr');
+    i18n.changeLanguage(isFrench ? 'en' : 'fr');
+  };
+
   return (
     <div className="global-header">
       <nav>
@@ -33,16 +38,17 @@ const GlobalHeader = () => {
       <header>
         <div id="wb-bnr" className="container">
           <section id="wb-lng" className="text-right">
-            <h2 className="wb-inv">Language selection</h2>
+            <h2 className="wb-inv">{t('language-selection')}</h2>
             <div className="row">
               <div className="col-md-12">
                 <ul className="list-inline margin-bottom-none">
                   <li>
                     <button
-                      lang="fr"
+                      lang={t('language-lang')}
                       type="button"
-                      className="btn btn-small btn-link"
-                      onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'fr' : 'en')}
+                      className="btn btn-link"
+                      onClick={toggleLanguage}
+                      style={{ padding: '0rem' }}
                     >
                       {t('header.language-toggle')}
                     </button>

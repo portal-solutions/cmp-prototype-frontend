@@ -36,10 +36,10 @@ i18n
       loadPath: `${process.env.PUBLIC_URL}/locales/{{lng}}/{{ns}}.json`
     },
     detection: {
-      order: ['querystring', 'localStorage', 'navigator'],
-      lookupQuerystring: 'locale',
+      caches: ['localStorage'],
       lookupLocalStorage: 'locale',
-      caches: ['localStorage']
+      lookupQuerystring: 'locale',
+      order: ['querystring', 'localStorage', 'navigator']
     },
     interpolation: {
       escapeValue: false // JSX escapes by default
