@@ -13,5 +13,10 @@
       "about-government": "Passer à «\u00a0Au sujet du gouvernement\u00a0»",
       "main-content": "Passer au contenu principal"
     }
+  },
+  "page-details": {
+    "date-modified": "Date de modification\u00a0:",
+    "screen-identifier": "Identificateur d'écran\u00a0:",
+    "version": "Version\u00a0:"
   }
 }
