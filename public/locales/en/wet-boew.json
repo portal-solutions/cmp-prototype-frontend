@@ -13,5 +13,10 @@
       "about-government": "Skip to \"About government\"",
       "main-content": "Skip to main content"
     }
+  },
+  "page-details": {
+    "date-modified": "Date modified:",
+    "screen-identifier": "Screen identifier:",
+    "version": "Version:"
   }
 }

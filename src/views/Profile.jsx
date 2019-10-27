@@ -12,7 +12,9 @@ import MainLayout from './layout/MainLayout';
 
 const Profile = () => (
   <MainLayout>
-    <p>Profile</p>
+    <h1 id="wb-cont" property="name">
+      Your profile
+    </h1>
   </MainLayout>
 );
 
