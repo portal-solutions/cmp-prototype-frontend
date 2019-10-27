@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/cmp-prototype-frontend/static/css/main.61e17e9a.chunk.css",
-    "main.js": "/cmp-prototype-frontend/static/js/main.9ee5584e.chunk.js",
+    "main.js": "/cmp-prototype-frontend/static/js/main.9bae54e9.chunk.js",
     "runtime-main.js": "/cmp-prototype-frontend/static/js/runtime-main.3eef2b32.js",
-    "static/js/2.17dcc8a2.chunk.js": "/cmp-prototype-frontend/static/js/2.17dcc8a2.chunk.js",
+    "static/js/2.177fe758.chunk.js": "/cmp-prototype-frontend/static/js/2.177fe758.chunk.js",
     "index.html": "/cmp-prototype-frontend/index.html",
-    "precache-manifest.88246c0cad49b5a3e7c69196bec50061.js": "/cmp-prototype-frontend/precache-manifest.88246c0cad49b5a3e7c69196bec50061.js",
+    "precache-manifest.d3f4838ce3202c9493e3b9ba95cb1e95.js": "/cmp-prototype-frontend/precache-manifest.d3f4838ce3202c9493e3b9ba95cb1e95.js",
     "service-worker.js": "/cmp-prototype-frontend/service-worker.js"
   },
   "entrypoints": [
     "static/js/runtime-main.3eef2b32.js",
-    "static/js/2.17dcc8a2.chunk.js",
+    "static/js/2.177fe758.chunk.js",
     "static/css/main.61e17e9a.chunk.css",
-    "static/js/main.9ee5584e.chunk.js"
+    "static/js/main.9bae54e9.chunk.js"
   ]
 }
