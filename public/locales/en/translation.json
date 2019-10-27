@@ -1,0 +1,13 @@
+{
+  "engager": "Engager",
+  "sign-in": {
+    "create-account": "Create an account",
+    "email-address": "Email address",
+    "forgot-password": "Forgot password?",
+    "password": "Password",
+    "remember-me": "Remember me",
+    "sign-in": "Sign in",
+    "you-must-login": "You must log in to access this resource."
+  },
+  "stakeholder": "Stakeholder"
+}

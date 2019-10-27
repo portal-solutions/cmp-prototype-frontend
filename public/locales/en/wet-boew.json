@@ -1,0 +1,17 @@
+{
+  "header": {
+    "brand-img-href": "//www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/assets/sig-blk-en.svg",
+    "brand-logo": {
+      "href": "//www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/assets/wmms-blk.svg"
+    },
+    "brand-text": "Government of Canada",
+    "canada-href": "https://www.canada.ca/en.html",
+    "language-lang": "fr",
+    "language-selection": "Language selection",
+    "language-toggle": "Français",
+    "skip-links": {
+      "about-government": "Skip to \"About government\"",
+      "main-content": "Skip to main content"
+    }
+  }
+}

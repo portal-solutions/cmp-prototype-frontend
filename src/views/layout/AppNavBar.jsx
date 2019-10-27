@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Button, Navbar } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../components/AuthProvider';
 import sleep from '../../utils/sleep.util';
@@ -19,6 +20,7 @@ import sleep from '../../utils/sleep.util';
 const AppNavBar = ({ showSignIn }) => {
   const auth = useAuth();
   const history = useHistory();
+  const { t } = useTranslation();
 
   const [loading, setLoading] = useState();
 
@@ -39,9 +41,9 @@ const AppNavBar = ({ showSignIn }) => {
           <li>
             <Link to="/">
               <Button bsSize="lg" bsStyle="link" className="z-depth-0">
-                <span style={{ color: '#f77', fontWeight: 'bold' }}>Stakeholder</span>
+                <span style={{ color: '#f77', fontWeight: 'bold' }}>{t('stakeholder')}</span>
                 <span>
-                  <em>Engager</em>
+                  <em>{t('engager')}</em>
                 </span>
               </Button>
             </Link>

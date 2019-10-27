@@ -14,7 +14,6 @@ import {
   Alert,
   Button,
   Checkbox,
-  Col,
   ControlLabel,
   Form,
   FormControl,
@@ -23,11 +22,12 @@ import {
   InputGroup,
   Row
 } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useAuth } from '../components/AuthProvider';
+import sleep from '../utils/sleep.util';
 import AppNavBar from './layout/AppNavBar';
 import GlobalHeader from './layout/GlobalHeader';
-import sleep from '../utils/sleep.util';
 
 const Error = () => (
   <Alert bsStyle="danger">
@@ -35,33 +35,42 @@ const Error = () => (
   </Alert>
 );
 
-const Title = () => (
-  <h1 className="h2 text-center" style={{ border: 'none', margin: '0rem', padding: '0rem' }}>
-    <span style={{ color: '#f77', display: 'block' }}>Stakeholder</span>
-    <span
-      style={{
-        color: '#777',
-        display: 'block',
-        fontStyle: 'italic',
-        fontWeight: 'normal',
-        marginTop: '-0.75rem'
-      }}
-    >
-      Engager
-    </span>
-  </h1>
-);
+const Title = () => {
+  const { t } = useTranslation();
 
-const Warning = () => (
-  <Alert bsStyle="warning" style={{ marginTop: '3rem' }}>
-    <span>You must log in to access this resource.</span>
-  </Alert>
-);
+  return (
+    <h1 className="h2 text-center" style={{ border: 'none', margin: '0rem', padding: '0rem' }}>
+      <span style={{ color: '#f77', display: 'block' }}>{t('stakeholder')}</span>
+      <span
+        style={{
+          color: '#777',
+          display: 'block',
+          fontStyle: 'italic',
+          fontWeight: 'normal',
+          marginTop: '-0.75rem'
+        }}
+      >
+        {t('engager')}
+      </span>
+    </h1>
+  );
+};
+
+const Warning = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Alert bsStyle="warning" style={{ marginTop: '3rem' }}>
+      <span>{t('sign-in.you-must-login')}</span>
+    </Alert>
+  );
+};
 
 const SignIn = () => {
   const auth = useAuth();
   const history = useHistory();
   const location = useLocation();
+  const { t } = useTranslation();
 
   const [email, setEmail] = useState('gregory.j.baker@hrsdc-rhdcc.gc.ca');
   const [password, setPassword] = useState('p@ssword1');
@@ -94,7 +103,7 @@ const SignIn = () => {
 
       <Grid>
         <Row style={{ marginTop: '3rem' }}>
-          <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3}>
+          <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <div className="panel panel-default z-depth-1">
               <div className="panel-body">
                 <Title />
@@ -107,10 +116,10 @@ const SignIn = () => {
                       <InputGroup.Addon>
                         <FontAwesomeIcon fixedWidth icon={faAt} />
                       </InputGroup.Addon>
-                      <ControlLabel className="sr-only">Email address</ControlLabel>
+                      <ControlLabel className="sr-only">{t('sign-in.email-address')}</ControlLabel>
                       <FormControl
                         type="text"
-                        placeholder="Email address"
+                        placeholder={t('sign-in.email-address')}
                         style={{ width: '100%' }}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -123,10 +132,10 @@ const SignIn = () => {
                       <InputGroup.Addon>
                         <FontAwesomeIcon fixedWidth icon={faKey} />
                       </InputGroup.Addon>
-                      <ControlLabel className="sr-only">Password</ControlLabel>
+                      <ControlLabel className="sr-only">{t('sign-in.password')}</ControlLabel>
                       <FormControl
                         type="password"
-                        placeholder="Password"
+                        placeholder={t('sign-in.password')}
                         style={{ width: '100%' }}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -135,7 +144,7 @@ const SignIn = () => {
                   </FormGroup>
 
                   <Checkbox value={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}>
-                    Remember me
+                    {t('sign-in.remember-me')}
                   </Checkbox>
 
                   {error && <Error />}
@@ -148,10 +157,11 @@ const SignIn = () => {
                       className="z-depth-1"
                       style={{ flexGrow: '1' }}
                     >
-                      <FontAwesomeIcon fixedWidth icon={loading ? faSpinner : faSignInAlt} spin={loading} /> Sign in
+                      <FontAwesomeIcon fixedWidth icon={loading ? faSpinner : faSignInAlt} spin={loading} />{' '}
+                      {t('sign-in.sign-in')}
                     </Button>
                     <Button componentClass="a" bsSize="large" bsStyle="link" href="#">
-                      Forgot password?
+                      {t('sign-in.forgot-password')}
                     </Button>
                   </div>
                 </Form>
@@ -159,11 +169,11 @@ const SignIn = () => {
 
               <div className="panel-footer text-center">
                 <Button componentClass="a" bsSize="large" bsStyle="link" href="#">
-                  Create an account
+                  {t('sign-in.create-account')}
                 </Button>
               </div>
             </div>
-          </Col>
+          </div>
         </Row>
       </Grid>
     </>
