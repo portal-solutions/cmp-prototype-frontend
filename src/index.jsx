@@ -15,6 +15,7 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import AuthProvider from './components/AuthProvider';
+import PageDetailsProvider from './components/PageDetailsProvider';
 import ProtectedRoute from './components/ProtectedRoute';
 import './config';
 import './index.scss';
@@ -24,10 +25,10 @@ import Profile from './views/Profile';
 import SignIn from './views/SignIn';
 import Spinner from './views/Spinner';
 
-const App = () => {
-  return (
-    <Suspense fallback={<Spinner size="5x" />}>
-      <AuthProvider>
+const App = () => (
+  <Suspense fallback={<Spinner size="5x" />}>
+    <AuthProvider>
+      <PageDetailsProvider>
         <HashRouter>
           <Switch>
             {/* public routes */}
@@ -41,9 +42,9 @@ const App = () => {
             <Route component={Error404} />
           </Switch>
         </HashRouter>
-      </AuthProvider>
-    </Suspense>
-  );
-};
+      </PageDetailsProvider>
+    </AuthProvider>
+  </Suspense>
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));

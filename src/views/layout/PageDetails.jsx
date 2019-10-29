@@ -9,31 +9,36 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import * as config from '../../config';
+import { usePageDetails } from '../../components/PageDetailsProvider';
 import './PageDetails.scss';
 
 const PageDetails = () => {
   const { t } = useTranslation('wet-boew');
-
-  const { dateModified, gitCommit, version } = config.application;
+  const { pageDetails } = usePageDetails();
 
   return (
     <div className="pagedetails clearfix">
-      {(dateModified || version) && (
+      {(pageDetails.pageId || pageDetails.dateModified || pageDetails.version) && (
         <dl id="wb-dtmd">
-          {dateModified && (
+          {pageDetails.pageId && (
+            <>
+              <dt>{t('page-details.screen-identifier')}</dt>
+              <dd property="identifier">{pageDetails.pageId}</dd>
+            </>
+          )}
+          {pageDetails.dateModified && (
             <>
               <dt>{t('page-details.date-modified')}</dt>
               <dd>
-                <time property="dateModified">{dateModified}</time>
+                <time property="dateModified">{pageDetails.dateModified}</time>
               </dd>
             </>
           )}
-          {version && (
+          {pageDetails.version && (
             <>
               <dt>{t('page-details.version')}</dt>
               <dd property="version">
-                {version}-{gitCommit}
+                {pageDetails.version}-{pageDetails.gitCommit}
               </dd>
             </>
           )}

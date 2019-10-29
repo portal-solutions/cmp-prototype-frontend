@@ -14,27 +14,24 @@ import GlobalHeader from './GlobalHeader';
 import PageDetails from './PageDetails';
 import SecondaryNavigation from './SecondaryNavigation';
 
-const MainLayout = ({ children, showSignIn }) => {
-  return (
-    <>
-      <GlobalHeader />
-      <AppNavBar showSignIn={showSignIn} />
-      <main property="mainContentOfPage" typeof="WebPageElement">
-        <div className="container" style={{ marginTop: '5rem' }}>
-          <div className="row">
-            <div className="col-lg-3 col-md-3 col-sm-4">
-              <SecondaryNavigation />
-            </div>
-            <div className="col-lg-9 col-md-9 col-sm-8">
-              {children}
-              <PageDetails />
-            </div>
+const MainLayout = ({ children, showSignIn }) => (
+  <>
+    <GlobalHeader />
+    <AppNavBar showSignIn={showSignIn} />
+    <main property="mainContentOfPage" typeof="WebPageElement">
+      <div className="container" style={{ marginTop: '5rem' }}>
+        <div className="row">
+          <div className="col-lg-3 col-md-3 col-sm-4">
+            <SecondaryNavigation />
+          </div>
+          <div className="col-lg-9 col-md-9 col-sm-8">
+            {children} <PageDetails />
           </div>
         </div>
-      </main>
-    </>
-  );
-};
+      </div>
+    </main>
+  </>
+);
 
 MainLayout.defaultProps = {
   showSignIn: true

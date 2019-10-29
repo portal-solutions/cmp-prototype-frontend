@@ -7,15 +7,23 @@
  * @author Greg Baker <gregory.j.baker@hrsdc-rhdcc.gc.ca>
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import MainLayout from './layout/MainLayout';
+import { usePageDetails } from '../components/PageDetailsProvider';
 
-const Profile = () => (
-  <MainLayout>
-    <h1 id="wb-cont" property="name">
-      Your profile
-    </h1>
-  </MainLayout>
-);
+const Profile = () => {
+  const { setPageDetails } = usePageDetails();
+
+  // eslint-disable-next-line
+  useEffect(() => setPageDetails({ pageId: 'SE-0002' }), []);
+
+  return (
+    <MainLayout>
+      <h1 id="wb-cont" property="name">
+        Your profile
+      </h1>
+    </MainLayout>
+  );
+};
 
 export default Profile;
