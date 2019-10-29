@@ -8,7 +8,7 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useCallback } from 'react';
 import * as config from '../config';
 
 const { dateModified, gitCommit, version } = config.application;
@@ -21,7 +21,7 @@ const PageDetailsProvider = ({ children }) => {
   const [state, setState] = useReducer(reducer, { dateModified, gitCommit, version });
 
   return (
-    <pageDetailsContext.Provider value={{ pageDetails: state, setPageDetails: setState }}>
+    <pageDetailsContext.Provider value={{ pageDetails: state, setPageDetails: useCallback(setState) }}>
       {children}
     </pageDetailsContext.Provider>
   );

@@ -17,7 +17,10 @@ import SecondaryNavigation from './SecondaryNavigation';
 const MainLayout = ({ children, showSignIn }) => (
   <>
     <GlobalHeader />
+    {/* <div className="col-lg-3 col-md-3 col-sm-4"> */}
     <AppNavBar showSignIn={showSignIn} />
+    {/* </div> */}
+    {/* <div className="col-lg-9 col-md-9 col-sm-8"> */}
     <main property="mainContentOfPage" typeof="WebPageElement">
       <div className="container" style={{ marginTop: '5rem' }}>
         <div className="row">
@@ -30,6 +33,7 @@ const MainLayout = ({ children, showSignIn }) => (
         </div>
       </div>
     </main>
+    {/* </div> */}
   </>
 );
 

@@ -7,21 +7,11 @@
  * @author Greg Baker <gregory.j.baker@hrsdc-rhdcc.gc.ca>
  */
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import { faAt, faKey, faSignInAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import {
-  Alert,
-  Button,
-  Checkbox,
-  ControlLabel,
-  Form,
-  FormControl,
-  FormGroup,
-  Grid,
-  InputGroup,
-  Row
-} from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useAuth } from '../components/AuthProvider';
@@ -30,9 +20,9 @@ import AppNavBar from './layout/AppNavBar';
 import GlobalHeader from './layout/GlobalHeader';
 
 const Error = () => (
-  <Alert bsStyle="danger">
+  <div role="alert" className="alert alert-danger">
     <span>Invalid username or password.</span>
-  </Alert>
+  </div>
 );
 
 const Title = () => {
@@ -60,9 +50,9 @@ const Warning = () => {
   const { t } = useTranslation();
 
   return (
-    <Alert bsStyle="warning" style={{ marginTop: '3rem' }}>
+    <div role="alert" className="alert alert-warning" style={{ marginTop: '3rem' }}>
       <span>{t('sign-in.you-must-login')}</span>
-    </Alert>
+    </div>
   );
 };
 
@@ -101,8 +91,8 @@ const SignIn = () => {
       <GlobalHeader />
       <AppNavBar showSignIn={false} />
 
-      <Grid>
-        <Row style={{ marginTop: '3rem' }}>
+      <div className="container">
+        <div className="row" style={{ marginTop: '3rem' }}>
           <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <div className="panel panel-default z-depth-1">
               <div className="panel-body">
@@ -110,72 +100,80 @@ const SignIn = () => {
 
                 {showWarning && <Warning />}
 
-                <Form style={{ marginTop: '3rem' }} onSubmit={handleSubmit}>
-                  <FormGroup controlId="email-address">
-                    <InputGroup>
-                      <InputGroup.Addon>
+                <form style={{ marginTop: '3rem' }} onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <span className="input-group">
+                      <span className="input-group-addon">
                         <FontAwesomeIcon fixedWidth icon={faAt} />
-                      </InputGroup.Addon>
-                      <ControlLabel className="sr-only">{t('sign-in.email-address')}</ControlLabel>
-                      <FormControl
+                      </span>
+                      <label htmlFor="email-address" className="sr-only control-label">
+                        {t('sign-in.email-address')}
+                      </label>
+                      <input
                         type="text"
+                        id="email-address"
                         placeholder={t('sign-in.email-address')}
-                        style={{ width: '100%' }}
+                        className="form-control"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                       />
-                    </InputGroup>
-                  </FormGroup>
+                    </span>
+                  </div>
 
-                  <FormGroup controlId="password">
-                    <InputGroup>
-                      <InputGroup.Addon>
+                  <div className="form-group">
+                    <span className="input-group">
+                      <span className="input-group-addon">
                         <FontAwesomeIcon fixedWidth icon={faKey} />
-                      </InputGroup.Addon>
-                      <ControlLabel className="sr-only">{t('sign-in.password')}</ControlLabel>
-                      <FormControl
+                      </span>
+                      <label htmlFor="password" className="sr-only control-label">
+                        {t('sign-in.password')}
+                      </label>
+                      <input
                         type="password"
+                        id="password"
                         placeholder={t('sign-in.password')}
-                        style={{ width: '100%' }}
+                        className="form-control"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                       />
-                    </InputGroup>
-                  </FormGroup>
+                    </span>
+                  </div>
 
-                  <Checkbox value={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}>
-                    {t('sign-in.remember-me')}
-                  </Checkbox>
+                  <div className="checkbox">
+                    <label htmlFor="remember-me">
+                      <input
+                        type="checkbox"
+                        id="remember-me"
+                        value={rememberMe}
+                        onChange={(e) => setRememberMe(e.target.checked)}
+                      />
+                      {t('sign-in.remember-me')}
+                    </label>
+                  </div>
 
                   {error && <Error />}
 
                   <div style={{ display: 'flex' }}>
-                    <Button
-                      type="submit"
-                      bsSize="large"
-                      bsStyle="primary"
-                      className="z-depth-1"
-                      style={{ flexGrow: '1' }}
-                    >
+                    <button className="btn btn-lg btn-primary z-depth-1" type="submit" style={{ flexGrow: '1' }}>
                       <FontAwesomeIcon fixedWidth icon={loading ? faSpinner : faSignInAlt} spin={loading} />{' '}
                       {t('sign-in.sign-in')}
-                    </Button>
-                    <Button componentClass="a" bsSize="large" bsStyle="link" href="#">
+                    </button>
+                    <a className="btn btn-lg btn-link z-depth-0" type="button" href="#">
                       {t('sign-in.forgot-password')}
-                    </Button>
+                    </a>
                   </div>
-                </Form>
+                </form>
               </div>
 
               <div className="panel-footer text-center">
-                <Button componentClass="a" bsSize="large" bsStyle="link" href="#">
+                <a className="btn btn-lg btn-link z-depth-0" type="button" href="#">
                   {t('sign-in.create-account')}
-                </Button>
+                </a>
               </div>
             </div>
           </div>
-        </Row>
-      </Grid>
+        </div>
+      </div>
     </>
   );
 };

@@ -14,8 +14,7 @@ import MainLayout from './layout/MainLayout';
 const Home = () => {
   const { setPageDetails } = usePageDetails();
 
-  // eslint-disable-next-line
-  useEffect(() => setPageDetails({ pageId: 'SE-0001' }), []);
+  useEffect(() => setPageDetails({ pageId: 'SE-0001' }), [setPageDetails]);
 
   return (
     <MainLayout>

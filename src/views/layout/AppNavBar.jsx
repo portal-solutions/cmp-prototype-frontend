@@ -11,7 +11,6 @@ import { faPowerOff, faSignInAlt, faSpinner, faUserAlt } from '@fortawesome/free
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Button, Navbar } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../components/AuthProvider';
@@ -36,51 +35,53 @@ const AppNavBar = ({ showSignIn }) => {
 
   return (
     <>
-      <Navbar>
-        <ul className="nav navbar-nav navbar-left">
-          <li>
-            <Link to="/">
-              <Button bsSize="lg" bsStyle="link" className="z-depth-0">
-                <span style={{ color: '#f77', fontWeight: 'bold' }}>{t('stakeholder')}</span>
-                <span>
-                  <em>{t('engager')}</em>
-                </span>
-              </Button>
-            </Link>
-          </li>
-        </ul>
-
-        <ul className="nav navbar-nav navbar-right">
-          {showSignIn && !auth.authContext && (
+      <nav className="navbar navbar-default">
+        <div className="container">
+          <ul className="nav navbar-nav navbar-left">
             <li>
-              <Link to="/sign-in">
-                <Button bsSize="lg" bsStyle="primary" className="z-depth-1">
-                  <FontAwesomeIcon fixedWidth icon={faSignInAlt} /> Sign in
-                </Button>
+              <Link to="/">
+                <button className="btn btn-lg btn-link z-depth-0" type="button">
+                  <span style={{ color: '#f77', fontWeight: 'bold' }}>{t('stakeholder')}</span>
+                  <span>
+                    <em>{t('engager')}</em>
+                  </span>
+                </button>
               </Link>
             </li>
-          )}
-          {auth.authContext && (
-            <>
+          </ul>
+
+          <ul className="nav navbar-nav navbar-right">
+            {showSignIn && !auth.authContext && (
               <li>
-                <Link to="/profile">
-                  <Button bsSize="lg" bsStyle="link" className="z-depth-0" style={{ fontWeight: 'bold' }}>
-                    <span className="fa-layers fa-fw">
-                      <FontAwesomeIcon fixedWidth icon={faUserAlt} style={{ marginRight: '1rem' }} />
-                    </span>
-                    {auth.authContext.name}
-                  </Button>
+                <Link to="/sign-in">
+                  <button className="btn btn-lg btn-primary z-depth-1" type="button">
+                    <FontAwesomeIcon fixedWidth icon={faSignInAlt} /> Sign in
+                  </button>
                 </Link>
               </li>
-              <li style={{ padding: '13.5px 15px' }}>
-                <Button bsSize="lg" bsStyle="danger" className="z-depth-1" onClick={handleSignOut}>
-                  <FontAwesomeIcon fixedWidth icon={loading ? faSpinner : faPowerOff} spin={loading} /> Sign out
-                </Button>
-              </li>
-            </>
-          )}
-        </ul>
-      </Navbar>
+            )}
+            {auth.authContext && (
+              <>
+                <li>
+                  <Link to="/profile">
+                    <button className="btn btn-lg btn-link z-depth-0" style={{ fontWeight: 'bold' }} type="button">
+                      <span className="fa-layers fa-fw">
+                        <FontAwesomeIcon fixedWidth icon={faUserAlt} style={{ marginRight: '1rem' }} />
+                      </span>
+                      {auth.authContext.name}
+                    </button>
+                  </Link>
+                </li>
+                <li style={{ padding: '13.5px 15px' }}>
+                  <button className="btn btn-lg btn-danger z-depth-1" type="button" onClick={handleSignOut}>
+                    <FontAwesomeIcon fixedWidth icon={loading ? faSpinner : faPowerOff} spin={loading} /> Sign out
+                  </button>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </nav>
     </>
   );
 };

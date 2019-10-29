@@ -14,8 +14,7 @@ import { usePageDetails } from '../components/PageDetailsProvider';
 const Profile = () => {
   const { setPageDetails } = usePageDetails();
 
-  // eslint-disable-next-line
-  useEffect(() => setPageDetails({ pageId: 'SE-0002' }), []);
+  useEffect(() => setPageDetails({ pageId: 'SE-0002' }), [setPageDetails]);
 
   return (
     <MainLayout>
