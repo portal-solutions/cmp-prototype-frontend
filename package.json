@@ -1,7 +1,7 @@
 {
   "author": "Greg Baker <gregory.j.baker@hrsdc-rhdcc.gc.ca>",
-  "homepage": "https://portal-solutions.github.io/cmp-prototype-frontend/",
-  "name": "cmp-prototype-frontend",
+  "homepage": "https://portal-solutions.github.io/rmp-prototype-frontend/",
+  "name": "rmp-prototype-frontend",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
