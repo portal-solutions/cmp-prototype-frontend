@@ -41,9 +41,9 @@ const AppNavBar = ({ showSignIn }) => {
             <li>
               <Link to="/">
                 <button className="btn btn-lg btn-link z-depth-0" type="button">
-                  <span style={{ color: '#f77', fontWeight: 'bold' }}>{t('stakeholder')}</span>
+                  <span style={{ color: '#f77', fontWeight: 'bold', marginRight: '0.5rem' }}>{t('relationship')}</span>
                   <span>
-                    <em>{t('engager')}</em>
+                    <em>{t('management-portal')}</em>
                   </span>
                 </button>
               </Link>

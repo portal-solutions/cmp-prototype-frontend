@@ -45,7 +45,8 @@ button.btn-link:active {
   border-color: transparent !important;
 }
 
-.input-group input {
+.input-group input,
+.input-group button {
   /* fix weird pixel misalignment on input groups */
   height: 40px;
 }

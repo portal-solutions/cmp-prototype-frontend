@@ -30,7 +30,7 @@ const Title = () => {
 
   return (
     <h1 className="h2 text-center" style={{ border: 'none', margin: '0rem', padding: '0rem' }}>
-      <span style={{ color: '#f77', display: 'block' }}>{t('stakeholder')}</span>
+      <span style={{ color: '#f77', display: 'block' }}>{t('relationship')}</span>
       <span
         style={{
           color: '#777',
@@ -40,7 +40,7 @@ const Title = () => {
           marginTop: '-0.75rem'
         }}
       >
-        {t('engager')}
+        {t('management-portal')}
       </span>
     </h1>
   );

@@ -1,5 +1,5 @@
 {
-  "engager": "Engager",
+  "management-portal": "Management Portal",
   "sign-in": {
     "create-account": "Créer un compte",
     "email-address": "Adresse e-mail",
@@ -9,5 +9,5 @@
     "sign-in": "Se connecter",
     "you-must-login": "Vous devez vous connecter pour accéder à cette ressource."
   },
-  "stakeholder": "Stakeholder"
+  "relationship": "Relationship"
 }
