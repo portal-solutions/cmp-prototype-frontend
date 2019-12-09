@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 /**
  * Copyright (c) Portal Solutions and its affiliates.
  *
@@ -10,13 +12,15 @@
 import { faAddressCard, faHandshake, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { usePageDetails } from '../components/PageDetailsProvider';
 import MainLayout from './layout/MainLayout';
+import pageIds from '../page-ids';
 
 const Home = () => {
   const { setPageDetails } = usePageDetails();
 
-  useEffect(() => setPageDetails({ pageId: 'SE-0001' }), [setPageDetails]);
+  useEffect(() => setPageDetails({ pageId: pageIds.home }), [setPageDetails]);
 
   return (
     <MainLayout>
@@ -80,13 +84,13 @@ const Search = () => (
 
 const Stakeholders = () => (
   <div className="mrgn-tp-lg">
-    <button
-      type="button"
+    <Link
+      to="/stakeholders"
       className="btn btn-block btn-lg btn-default z-depth-1"
       style={{ paddingTop: '2rem', paddingBottom: '2rem' }}
     >
       <FontAwesomeIcon fixedWidth icon={faAddressCard} /> <span>List Stakeholders</span>
-    </button>
+    </Link>
     <p className="text-muted">View or edit the list of stakeholders and see their profiles, statuses or engagements.</p>
   </div>
 );

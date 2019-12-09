@@ -8,13 +8,14 @@
  */
 
 import React, { useEffect } from 'react';
-import MainLayout from './layout/MainLayout';
 import { usePageDetails } from '../components/PageDetailsProvider';
+import pageIds from '../page-ids';
+import MainLayout from './layout/MainLayout';
 
 const Profile = () => {
   const { setPageDetails } = usePageDetails();
 
-  useEffect(() => setPageDetails({ pageId: 'SE-0002' }), [setPageDetails]);
+  useEffect(() => setPageDetails({ pageId: pageIds.profile }), [setPageDetails]);
 
   return (
     <MainLayout>

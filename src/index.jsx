@@ -17,13 +17,15 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import AuthProvider from './components/AuthProvider';
 import PageDetailsProvider from './components/PageDetailsProvider';
 import ProtectedRoute from './components/ProtectedRoute';
-import './config';
-import './index.scss';
 import Error404 from './views/error/Error404';
 import Home from './views/Home';
 import Profile from './views/Profile';
 import SignIn from './views/SignIn';
 import Spinner from './views/Spinner';
+import Stakeholders from './views/Stakeholders';
+
+import './config';
+import './index.scss';
 
 const App = () => (
   <Suspense fallback={<Spinner size="5x" />}>
@@ -37,6 +39,7 @@ const App = () => (
 
             {/* protected routes */}
             <ProtectedRoute exact path="/profile" component={Profile} />
+            <ProtectedRoute exact path="/stakeholders" component={Stakeholders} />
 
             {/* 404 fallback */}
             <Route component={Error404} />
